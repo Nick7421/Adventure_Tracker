@@ -1,8 +1,8 @@
 .nav-title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
-    display: inline-block;
-    color: #f2f2f2;
+    display:inline-block;
+    color: black;
     padding-left: 10px;
 }
 
@@ -13,7 +13,7 @@
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
+  color:black;
   background-color: #FB9E24;
   text-align: center;
   padding: 24px 10px;
@@ -28,9 +28,9 @@
 }
 
 .nav-link:hover {
-  background-color:#FB9E24;
+  background-color:orange;
 }
 
 .nav-right {
-  float: right;
+  float: left bottom;
 }
