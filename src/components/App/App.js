@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import RecentAdventure from '../RecentAdventure/RecentAdventure';
 
+
 import './App.css';
 
 class App extends Component {
