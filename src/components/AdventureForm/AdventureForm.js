@@ -37,14 +37,22 @@ class AdventureForm extends Component {
         iconImg: "Image URL for icon (optional)",
         startDate: "Start Date",
         endDate:"End Date",
-        position: [{latitude:"",
-                    logitude:"",
+        positions: {latitude:"",
+                    longitude:"",
                     imgUrl:"",
-                    videoUrl:""}],
+                    videoUrl:""},
         description: "Description",
         type:""
       };
+      
+      componentDidMount = () => {
+          this.getType();
+      }
 
+      getType = () => {
+          const action = {type: 'GET_TYPE'};
+          this.props.dispatch(action);
+      }
       handleNameChange = event => {
           this.setState({
                 name:event.target.value,
@@ -65,7 +73,7 @@ class AdventureForm extends Component {
 
       handleEndDateChange = event => {
           this.setState({
-            endDate:event.target.value
+             endDate:event.target.value
           })
       }
 
@@ -74,9 +82,41 @@ class AdventureForm extends Component {
               description:event.target.value
           })
       }
+      handleTypeChange = event => {
+        this.setState({
+            type:event.target.value
+        })
+    }
+    handleAddAdventure = event => {
+        console.log(this.state);
+    }
+
+    handleLatitudeChange = event => {
+        this.setState({
+        positions:{...this.state.positions,...{latitude:event.target.value}}
+        })
+    
+    }
+    handleLongitudeChange = event => {
+        this.setState({
+            positions:{...this.state.positions,...{longitude:event.target.value}}
+            })
+    }
+    handleUrlChange = event => {
+        this.setState({
+            positions:{...this.state.positions,...{imgUrl:event.target.value}}
+            })
+    }
+
+    handleVideoUrlChange = event => {
+        this.setState({
+            positions:{...this.state.positions,...{videoUrl:event.target.value}}
+            })
+    }
 
   render() {
         const { classes } = this.props;
+        console.log(this.state);
         return (
           <div>
             <form
@@ -139,37 +179,83 @@ class AdventureForm extends Component {
                 style = {{width: 300}}
                 variant="outlined"
               />
-              {/* <TextField
+              <TextField
                 // required
                 id="outlined-type"
                 select
                 label="Select a type of Adventure"
                 className={classes.textField}
-                value={this.state.tag}
-                onChange={this.handleTagChange}
+                value={this.state.type}
+                onChange={this.handleTypeChange}
                 variant="outlined"
                 SelectProps={{
                   MenuProps: {
                     className: classes.menu
                   }
                 }}
-                helperText="Please select your project type"
+                style = {{width: 250}}
                 margin="normal"
               >
-                {this.props.reduxStore.tags.map(tag => (
-                  <MenuItem key={tag.id} value={tag.name}>
-                  {tag.name}
+                {this.props.reduxStore.typeReducer.map(type => (
+                  <MenuItem key={type.id} value={type.adventure_type}>
+                  {type.adventure_type}
                   </MenuItem>
                 ))}
               </TextField>
+    
+        
+             <TextField
+                required
+                id="outlined-latitude"
+                label="Required Latitude"
+                className={classes.textField}
+                value={this.state.positions.latitude}
+                onChange={this.handleLatitudeChange}
+                margin="normal"
+                style = {{width: 300}}
+                variant="outlined"
+              />
+              <TextField
+                required
+                id="outlined-longitude"
+                label="Required Longitude"
+                className={classes.textField}
+                value={this.state.positions.longitude}
+                onChange={this.handleLongitudeChange}
+                margin="normal"
+                style = {{width: 300}}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-imgUrl"
+                label="location Img Url"
+                className={classes.textField}
+                value={this.state.positions.imgUrl}
+                onChange={this.handleUrlChange}
+                margin="normal"
+                style = {{width: 300}}
+                variant="outlined"
+              />
+            <TextField
+                id="outlined-videoUrl"
+                label="location videoUrl"
+                className={classes.textField}
+                value={this.state.positions.videoUrl}
+                onChange={this.handleVideoUrlChange}
+                margin="normal"
+                style = {{width: 300}}
+                variant="outlined"
+              />
+        
+    
               <Button
                 className={classes.button}
                 id="submit-btn"
-                onClick={this.handleAddProject}
+                onClick={this.handleAddAdventure}
                 variant="contained"
               >
                 Submit
-              </Button> */}
+              </Button>
             </form>
           </div>
     )
