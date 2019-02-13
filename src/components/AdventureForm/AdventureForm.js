@@ -87,45 +87,46 @@ class AdventureForm extends Component {
             >
               <TextField
                 required
-                id="outlined-name"
+                id="standard-name"
                 label="Name Required"
                 className={classes.textField}
                 value={this.state.name}
                 onChange={this.handleNameChange}
                 margin="normal"
-                variant="outlined"
+                variant="standard"
               />
               <TextField
                 required
-                id="outlined-icon"
+                id="standard-icon"
                 label="Required"
                 className={classes.textField}
                 value={this.state.iconImg}
                 onChange={this.handleIconChange}
                 margin="normal"
-                variant="outlined"
+                variant="standard"
+                style = {{width: 220}}
               />
               <TextField
                 required
-                id="outlined-startdate"
+                id="standard-startdate"
                 label="Required"
                 type="date"
                 className={classes.textField}
                 value={this.state.startDate}
                 onChange={this.handleStartDateChange}
                 margin="normal"
-                variant="outlined"
+                variant="standard"
               />
               <TextField
                 required
-                id="outlined-enddate"
+                id="standard-enddate"
                 label="Required"
                 type="date"
                 className={classes.textField}
                 value={this.state.endDate}
                 onChange={this.handleEndDateChange}
                 margin="normal"
-                variant="outlined"
+                variant="standard"
               />
               <TextField
                 required
