@@ -36,16 +36,46 @@ class AdventureForm extends Component {
         name: "Adventure Name",
         iconImg: "Image URL for icon (optional)",
         startDate: "Start Date",
+        endDate:"End Date",
         position: [{latitude:"",
                     logitude:"",
                     imgUrl:"",
                     videoUrl:""}],
-        website: "Website (Optional)",
         description: "Description",
         type:""
       };
+
+      handleNameChange = event => {
+          this.setState({
+                name:event.target.value,
+          });
+      };
+
+      handleIconChange = event => {
+          this.setState({
+              iconImg:event.target.value,
+          });
+      };
+
+      handleStartDateChange = event => {
+          this.setState({
+              startDate:event.target.value,
+          });
+      };
+
+      handleEndDateChange = event => {
+          this.setState({
+            endDate:event.target.value
+          })
+      }
+
+      handleDescriptionChange = event => {
+          this.setState({
+              description:event.target.value
+          })
+      }
+
   render() {
-    return (
         const { classes } = this.props;
         return (
           <div>
@@ -60,18 +90,48 @@ class AdventureForm extends Component {
                 id="outlined-name"
                 label="Title Required"
                 className={classes.textField}
-                value={this.state.title}
-                onChange={this.handleTitleChange}
+                value={this.state.name}
+                onChange={this.handleNameChange}
                 margin="normal"
                 variant="outlined"
               />
               <TextField
                 required
-                id="outlined-date"
+                id="outlined-icon"
                 label="Required"
                 className={classes.textField}
-                value={this.state.date}
-                onChange={this.handleDateChange}
+                value={this.state.iconImg}
+                onChange={this.handleIconChange}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                required
+                id="outlined-startdate"
+                label="Required"
+                className={classes.textField}
+                value={this.state.startDate}
+                onChange={this.handleStartDateChange}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                required
+                id="outlined-enddate"
+                label="Required"
+                className={classes.textField}
+                value={this.state.endDate}
+                onChange={this.handleEndDateChange}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                required
+                id="outlined-description"
+                label="Required"
+                className={classes.textField}
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
                 margin="normal"
                 variant="outlined"
               />
@@ -98,36 +158,6 @@ class AdventureForm extends Component {
                   </MenuItem>
                 ))}
               </TextField>
-    
-              <TextField
-                required
-                id="outlined-github"
-                label="Required"
-                className={classes.textField}
-                value={this.state.github}
-                onChange={this.handleGitChange}
-                margin="normal"
-                variant="outlined"
-              />
-              <TextField
-                id="outlined-website"
-                label="Website URL (Optional)"
-                className={classes.textField}
-                value={this.state.website}
-                onChange={this.handleWebsiteChange}
-                margin="normal"
-                variant="outlined"
-              />
-              <TextField
-                required
-                id="outlined-description"
-                label="Required"
-                className={classes.descriptionField}
-                value={this.state.description}
-                onChange={this.handleDescriptionChange}
-                margin="normal"
-                variant="outlined"
-              />
               <Button
                 className={classes.button}
                 id="submit-btn"
@@ -141,4 +171,13 @@ class AdventureForm extends Component {
     )
   }
 }
-export default AdventureForm
+
+AdventureForm.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+const mapStoreToProps = reduxStore => ({
+    reduxStore
+  });
+
+export default connect(mapStoreToProps)(withStyles(styles)(AdventureForm));
