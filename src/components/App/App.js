@@ -17,6 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import RecentAdventure from '../RecentAdventure/RecentAdventure';
+import AdventureForm from '../AdventureForm/AdventureForm';
 
 
 import './App.css';
@@ -56,6 +57,11 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/adventureform"
+              component={AdventureForm}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

@@ -9,9 +9,9 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
+    background-color: #ece8e8;
+    width: 70%;
+    height: auto;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;

@@ -16,18 +16,18 @@ const styles = theme => ({
     },
     textField: {
       marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit
+      marginRight: theme.spacing.unit,
     },
-    descriptionField: {
+    description: {
       marginLeft: theme.spacing.unit,
       marginRight: theme.spacing.unit,
-      width: 500
+      width: 1000
     },
     dense: {
-      marginTop: 16
+      marginTop: 16,
     },
     menu: {
-      width: 200
+      width: 400,
     }
   });
 
@@ -88,7 +88,7 @@ class AdventureForm extends Component {
               <TextField
                 required
                 id="outlined-name"
-                label="Title Required"
+                label="Name Required"
                 className={classes.textField}
                 value={this.state.name}
                 onChange={this.handleNameChange}
@@ -109,6 +109,7 @@ class AdventureForm extends Component {
                 required
                 id="outlined-startdate"
                 label="Required"
+                type="date"
                 className={classes.textField}
                 value={this.state.startDate}
                 onChange={this.handleStartDateChange}
@@ -119,6 +120,7 @@ class AdventureForm extends Component {
                 required
                 id="outlined-enddate"
                 label="Required"
+                type="date"
                 className={classes.textField}
                 value={this.state.endDate}
                 onChange={this.handleEndDateChange}
@@ -133,13 +135,14 @@ class AdventureForm extends Component {
                 value={this.state.description}
                 onChange={this.handleDescriptionChange}
                 margin="normal"
+                style = {{width: 300}}
                 variant="outlined"
               />
-              <TextField
+              {/* <TextField
                 // required
-                id="outlined-tag"
+                id="outlined-type"
                 select
-                label="Select a project tag"
+                label="Select a type of Adventure"
                 className={classes.textField}
                 value={this.state.tag}
                 onChange={this.handleTagChange}
@@ -165,7 +168,7 @@ class AdventureForm extends Component {
                 variant="contained"
               >
                 Submit
-              </Button>
+              </Button> */}
             </form>
           </div>
     )
