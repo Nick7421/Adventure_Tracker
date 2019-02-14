@@ -18,6 +18,9 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import RecentAdventure from '../RecentAdventure/RecentAdventure';
 import AdventureForm from '../AdventureForm/AdventureForm';
+import HikingAdventure from '../HikingAdventure/HikingAdventure';
+import DualSportAdventure from '../DualSportAdventure/DualSportAdventure';
+import RoadAdventure from '../RoadAdventure/RoadAdventure';
 
 
 import './App.css';
@@ -62,6 +65,21 @@ class App extends Component {
               exact
               path="/adventureform"
               component={AdventureForm}
+            />
+            <ProtectedRoute
+              exact
+              path="/hiking"
+              component={HikingAdventure}
+            />
+            <ProtectedRoute
+              exact
+              path="/dualsport"
+              component={DualSportAdventure}
+            />
+            <ProtectedRoute
+              exact
+              path="/road"
+              component={RoadAdventure}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
