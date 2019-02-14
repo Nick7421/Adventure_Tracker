@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import { FormGroup } from '@material-ui/core';
 
 const styles = theme => ({
     container: {
@@ -37,10 +38,10 @@ class AdventureForm extends Component {
         iconImg: "Image URL for icon (optional)",
         startDate: "Start Date",
         endDate:"End Date",
-        positions: {latitude:"",
+        positions: [{latitude:"",
                     longitude:"",
                     imgUrl:"",
-                    videoUrl:""},
+                    videoUrl:""}],
         description: "Description",
         type:""
       };
@@ -91,27 +92,51 @@ class AdventureForm extends Component {
         console.log(this.state);
     }
 
-    handleLatitudeChange = event => {
-        this.setState({
-        positions:{...this.state.positions,...{latitude:event.target.value}}
-        })
+    // handleLatitudeChange = event => {
+    //     this.setState({
+    //     positions:{...this.state.positions,...{latitude:event.target.value}}
+    //     })
     
-    }
-    handleLongitudeChange = event => {
-        this.setState({
-            positions:{...this.state.positions,...{longitude:event.target.value}}
-            })
-    }
-    handleUrlChange = event => {
-        this.setState({
-            positions:{...this.state.positions,...{imgUrl:event.target.value}}
-            })
-    }
+    // }
+    // handleLongitudeChange = event => {
+    //     this.setState({
+    //         positions:{...this.state.positions,...{longitude:event.target.value}}
+    //         })
+    // }
+    // handleUrlChange = event => {
+    //     this.setState({
+    //         positions:{...this.state.positions,...{imgUrl:event.target.value}}
+    //         })
+    // }
 
-    handleVideoUrlChange = event => {
+    // handleVideoUrlChange = event => {
+    //     this.setState({
+    //         positions:{...this.state.positions,...{videoUrl:event.target.value}}
+    //         })
+    // }
+
+    handleAddMoreAdventure = event => {
         this.setState({
-            positions:{...this.state.positions,...{videoUrl:event.target.value}}
-            })
+            positions: [...this.state.positions, 
+                {
+                    latitude:"",
+                    longitude:"",
+                    imgUrl:"",
+                    videoUrl:""
+                }
+            ],
+        });
+    }
+    handlePositionChange = (index, key) => event => {
+        let positions = [...this.state.positions];
+        let position = {
+            ...positions[index],
+            [key]: event.target.value // e.g. latitude: 50 or longitude: 123
+        };
+        positions[index] = position;
+        this.setState({
+            positions: positions
+        });
     }
 
   render() {
@@ -203,14 +228,17 @@ class AdventureForm extends Component {
                 ))}
               </TextField>
     
-        
-             <TextField
+    {/* The below fields will dynamically render when the add button is clicked*/}
+    {this.state.positions.map((position, i) => {
+        return (
+        <FormGroup>
+        <TextField
                 required
                 id="outlined-latitude"
                 label="Required Latitude"
                 className={classes.textField}
-                value={this.state.positions.latitude}
-                onChange={this.handleLatitudeChange}
+                value={position.latitude}
+                onChange={this.handlePositionChange(i, 'latitude')}
                 margin="normal"
                 style = {{width: 300}}
                 variant="outlined"
@@ -220,8 +248,8 @@ class AdventureForm extends Component {
                 id="outlined-longitude"
                 label="Required Longitude"
                 className={classes.textField}
-                value={this.state.positions.longitude}
-                onChange={this.handleLongitudeChange}
+                value={position.longitude}
+                onChange={this.handlePositionChange(i, 'longitude')}
                 margin="normal"
                 style = {{width: 300}}
                 variant="outlined"
@@ -230,8 +258,8 @@ class AdventureForm extends Component {
                 id="outlined-imgUrl"
                 label="location Img Url"
                 className={classes.textField}
-                value={this.state.positions.imgUrl}
-                onChange={this.handleUrlChange}
+                value={position.imgUrl}
+                onChange={this.handlePositionChange(i, 'imgUrl')}
                 margin="normal"
                 style = {{width: 300}}
                 variant="outlined"
@@ -240,12 +268,24 @@ class AdventureForm extends Component {
                 id="outlined-videoUrl"
                 label="location videoUrl"
                 className={classes.textField}
-                value={this.state.positions.videoUrl}
+                value={position.videoUrl}
                 onChange={this.handleVideoUrlChange}
                 margin="normal"
                 style = {{width: 300}}
                 variant="outlined"
               />
+              </FormGroup>);
+
+    })}
+             
+              <Button
+                className={classes.button}
+                id="add-btn"
+                onClick={this.handleAddMoreAdventure}
+                variant="contained"
+              >
+                Add More
+              </Button>
         
     
               <Button
