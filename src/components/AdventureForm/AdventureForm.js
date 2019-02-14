@@ -145,6 +145,7 @@ class AdventureForm extends Component {
         console.log(this.state);
         return (
           <div>
+          <h1>New Adventure Form</h1>
             <form
               id="input-form"
               className={classes.container}
