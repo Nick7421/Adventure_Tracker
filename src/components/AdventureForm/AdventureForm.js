@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import { FormGroup } from '@material-ui/core';
+import './AdventureForm.css';
 
 const styles = theme => ({
     container: {
@@ -231,7 +232,7 @@ class AdventureForm extends Component {
     {/* The below fields will dynamically render when the add button is clicked*/}
     {this.state.positions.map((position, i) => {
         return (
-        <FormGroup>
+        <div>
         <TextField
                 required
                 id="outlined-latitude"
@@ -274,7 +275,7 @@ class AdventureForm extends Component {
                 style = {{width: 300}}
                 variant="outlined"
               />
-              </FormGroup>);
+              </div>);
 
     })}
              
