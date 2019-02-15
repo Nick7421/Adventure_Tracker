@@ -91,6 +91,24 @@ class AdventureForm extends Component {
     }
     handleAddAdventure = event => {
         console.log(this.state);
+        event.preventDefault();
+        const action = ({type: 'ADD_ADVENTURE', payload: this.state});
+        this.props.dispatch(action);
+        alert('You have added a new Adventure');
+        this.setState({
+        name: "Adventure Name",
+        iconImg: "Image URL for icon (optional)",
+        startDate: "Start Date",
+        endDate:"End Date",
+        positions: [{latitude:"",
+                    longitude:"",
+                    imgUrl:"",
+                    videoUrl:""}],
+        description: "Description",
+        type:""
+
+        })
+        this.props.history
     }
 
     // handleLatitudeChange = event => {
