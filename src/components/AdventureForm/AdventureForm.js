@@ -96,43 +96,20 @@ class AdventureForm extends Component {
         this.props.dispatch(action);
         alert('You have added a new Adventure');
         this.setState({
-        name: "Adventure Name",
-        iconImg: "Image URL for icon (optional)",
-        startDate: "Start Date",
-        endDate:"End Date",
-        positions: [{latitude:"",
-                    longitude:"",
-                    imgUrl:"",
-                    videoUrl:""}],
+            name: "Adventure Name",
+            iconImg: "Image URL for icon (optional)",
+            startDate: "Start Date",
+            endDate:"End Date",
+                positions: [{latitude:"",
+                            longitude:"",
+                            imgUrl:"",
+                            videoUrl:""}],
         description: "Description",
         type:""
 
         })
-        this.props.history
+        this.props.history.push('/home');
     }
-
-    // handleLatitudeChange = event => {
-    //     this.setState({
-    //     positions:{...this.state.positions,...{latitude:event.target.value}}
-    //     })
-    
-    // }
-    // handleLongitudeChange = event => {
-    //     this.setState({
-    //         positions:{...this.state.positions,...{longitude:event.target.value}}
-    //         })
-    // }
-    // handleUrlChange = event => {
-    //     this.setState({
-    //         positions:{...this.state.positions,...{imgUrl:event.target.value}}
-    //         })
-    // }
-
-    // handleVideoUrlChange = event => {
-    //     this.setState({
-    //         positions:{...this.state.positions,...{videoUrl:event.target.value}}
-    //         })
-    // }
 
     handleAddMoreAdventure = event => {
         this.setState({
