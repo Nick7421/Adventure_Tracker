@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* getType(action){
@@ -12,7 +12,7 @@ function* getType(action){
 }
 
 function* typeSaga() {
-    yield takeLatest('GET_TYPE', getType);
+    yield takeEvery('GET_TYPE', getType);
   }
   
   export default typeSaga;

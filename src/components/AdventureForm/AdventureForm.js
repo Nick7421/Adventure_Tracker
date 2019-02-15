@@ -219,7 +219,7 @@ class AdventureForm extends Component {
                 margin="normal"
               >
                 {this.props.reduxStore.typeReducer.map(type => (
-                  <MenuItem key={type.id} value={type.adventure_type}>
+                  <MenuItem key={type.id} value={type.id}>
                   {type.adventure_type}
                   </MenuItem>
                 ))}
@@ -266,7 +266,7 @@ class AdventureForm extends Component {
                 label="location videoUrl"
                 className={classes.textField}
                 value={position.videoUrl}
-                onChange={this.handleVideoUrlChange}
+                onChange={this.handlePositionChange(i, 'videoUrl')}
                 margin="normal"
                 style = {{width: 300}}
                 variant="outlined"
