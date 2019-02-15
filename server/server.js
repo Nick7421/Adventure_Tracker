@@ -17,6 +17,7 @@ const photographyRouter = require('./routes/photography.router');
 const recentRouter = require('./routes/recent.router');
 const detailRouter = require('./routes/detail.router');
 const typeRouter = require('./routes/type.router');
+const newadventureRouter = require('./routes/newadventure.router');
 
 
 // Body parser middleware
@@ -39,6 +40,7 @@ app.use('/api/photography',photographyRouter);
 app.use('/api/recent',recentRouter);
 app.use('/api/detail',detailRouter);
 app.use('/api/type',typeRouter);
+app.use('/api/newadventure',newadventureRouter);
 
 
 

@@ -1,6 +1,9 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+//This Saga will take in the new DATA from the Adventure Form and Dispatch it to the Server
+//to be INSERTED.
+//It will then call SET_RECENT to call a new GET to refresh the recent website.
 function* addNew(action){
     try{
         const serverResponse = yield axios.post('/api/newadventure');
