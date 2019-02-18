@@ -7,6 +7,7 @@ import hikingReducer from './hikingReducer';
 import dualSportReducer from './dualSportReducer';
 import roadReducer from './roadReducer';
 import photographyReducer from './photographyReducer';
+import recentReducer from './recentReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   dualSportReducer,
   roadReducer,
   photographyReducer,
+  recentReducer,
 });
 
 export default rootReducer;

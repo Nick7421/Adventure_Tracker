@@ -8,6 +8,7 @@ import hikingSaga from './hikingSaga';
 import dualSportSaga from './dualSportSaga';
 import roadSaga from './roadSaga';
 import photographySaga from './photographySaga'
+import recentSaga from './recentSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -27,5 +28,6 @@ export default function* rootSaga() {
     dualSportSaga(),
     roadSaga(),
     photographySaga(),
+    recentSaga(),
   ]);
 }
