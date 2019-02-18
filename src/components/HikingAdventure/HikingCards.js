@@ -27,7 +27,9 @@ const styles = {
         super(props);
     }
 
-
+    detailsPage = () => {
+        console.log(this.props.hike.id);
+    }
   render() {
       //This will display a card will all the project info.
     return (
@@ -56,7 +58,8 @@ const styles = {
              </CardContent>
          </CardActionArea> 
          <CardActions>
-                 <Button size="small" color="primary" id='git-btn'>
+                 <Button size="small" color="primary" id='detail-btn' value={this.props.hike.id}
+                 onClick ={this.detailsPage}>
                      Details
                  </Button>
              
