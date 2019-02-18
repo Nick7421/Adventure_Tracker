@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import PhotographyCards from './PhotographyCards';
+
+import Grid from '@material-ui/core/Grid';
+import Paper from "@material-ui/core/Paper";
 
 class PhotographyAdventure extends Component {
   componentDidMount(){
@@ -14,7 +18,13 @@ class PhotographyAdventure extends Component {
     return (
       <div>
         <h1>Photography Adventures</h1>
-        {JSON.stringify(this.props.reduxStore.photographyReducer)}
+        <Paper id="adventure" elevation={3}>
+          <Grid container spacing={32}>
+            {this.props.reduxStore.photographyReducer.map(photo => (
+              <PhotographyCards key={photo.id} photo={photo} />
+            ))}
+          </Grid>
+        </Paper>
       </div>
     )
   }
