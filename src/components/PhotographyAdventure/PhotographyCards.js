@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router'
+
 //Material-UI components used for the Cards
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -23,12 +26,20 @@ const styles = {
   };
 
   class PhotographyCards extends Component {
+
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+      }
+
     constructor(props){
         super(props);
     }
 
     detailsPage = () => {
         console.log(this.props.photo.id);
+        this.props.history.push(`/adventure/${this.props.photo.id}`);
     }
   render() {
       //This will display a card will all the project info.
@@ -67,6 +78,9 @@ const styles = {
     )
   }
 }
+
+const NewPhotographyCards = withRouter(PhotographyCards);
+
 const mapStoreToProps = reduxStore => ({
     reduxStore
   });
