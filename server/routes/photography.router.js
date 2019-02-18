@@ -9,9 +9,8 @@ router.get("/", (req, res) => {
     if (req.isAuthenticated()) {
       console.log("req.user:", req.user);
       pool
-        .query(`SELECT * FROM "user_adventure" JOIN "adventure_name" 
-                  ON "user_adventure"."adventure_id" ="adventure_name"."id"  WHERE "advent_type_id" = 4
-                  AND ${req.user.id} = "adventure_name"."person_id"`
+        .query(`Select * FROM "adventure_name" WHERE "advent_type_id" = 4
+        AND ${req.user.id} = "adventure_name"."person_id";`
         )
         .then(results => res.send(results.rows))
         .catch(error => {
