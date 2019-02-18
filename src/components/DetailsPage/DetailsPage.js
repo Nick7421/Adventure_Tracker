@@ -24,7 +24,7 @@ class DetailsPage extends Component {
   render() {
     return (
       <div>
-      {JSON.stringify(this.props.match)}
+      {JSON.stringify(this.props.match.params.id)}
         <h1>Details Page</h1>
         
         <GoogleMaps />

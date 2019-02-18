@@ -23,7 +23,7 @@ class HikingAdventure extends Component {
         <Paper id="adventure" elevation={3}>
           <Grid container spacing={32}>
             {this.props.reduxStore.hikingReducer.map(hike => (
-              <HikingCards key={hike.id} hike={hike} />
+              <HikingCards key={hike.id} hike={hike} history={this.props.history}/>
             ))}
           </Grid>
         </Paper>

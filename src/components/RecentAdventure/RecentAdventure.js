@@ -19,7 +19,7 @@ class RecentAdventure extends Component {
     return (
       <div>
         <h1>Recent Adventures</h1>
-        {JSON.stringify(this.props.reduxStore.recentReducer)}
+        {/* {JSON.stringify(this.props.reduxStore.recentReducer)} */}
         <Paper id="adventure" elevation={3}>
           <Grid container spacing={32}>
             {this.props.reduxStore.recentReducer.map(item => (
