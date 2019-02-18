@@ -9,10 +9,9 @@ router.get("/", (req, res) => {
     if (req.isAuthenticated()) {
       console.log("req.user:", req.user);
       pool
-        .query(`SELECT * FROM "user_adventure" JOIN "adventure_name" 
-                  ON "user_adventure"."adventure_id" ="adventure_name"."id"  
+        .query(`SELECT * FROM "adventure_name"   
                   WHERE ${req.user.id} = "adventure_name"."person_id"
-                  ORDER BY "date_entered" ASC LIMIT 1;`
+                  ORDER BY "date_submitted" ASC LIMIT 1;`
         )
         .then(results => res.send(results.rows))
         .catch(error => {

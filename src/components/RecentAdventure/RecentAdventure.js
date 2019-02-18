@@ -7,7 +7,6 @@ class RecentAdventure extends Component {
     return (
       <div>
         <h1>Recent Adventures</h1>
-        <LogOutButton className="log-in" />
       </div>
     )
   }
