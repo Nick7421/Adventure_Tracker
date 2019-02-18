@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 
+import Grid from '@material-ui/core/Grid';
+import Paper from "@material-ui/core/Paper";
+
+import RoadCards from './RoadCards';
+
 class RoadAdventure extends Component {
   componentDidMount(){
     this.getRoad();
@@ -15,7 +20,13 @@ class RoadAdventure extends Component {
       <div>
       
       <h1>Road Adventures</h1>
-      {JSON.stringify(this.props.reduxStore.roadReducer)}
+      <Paper id="adventure" elevation={3}>
+          <Grid container spacing={32}>
+            {this.props.reduxStore.roadReducer.map(road => (
+              <RoadCards key={road.id} road={road} />
+            ))}
+          </Grid>
+        </Paper>
         
       </div>
     )
