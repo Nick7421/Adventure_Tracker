@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
 
 class DetailsPage extends Component {
     constructor(props){
@@ -16,14 +17,19 @@ class DetailsPage extends Component {
         method:'GET',
         url:`/api/detail/${adventureId}`
     }).then((response)=>{
-        this.setState(response.data);
+        this.setState(response.data)
     })
+
     }
   render() {
     return (
       <div>
       {JSON.stringify(this.props.match)}
         <h1>Details Page</h1>
+        
+        <GoogleMaps />
+
+
       </div>
     )
   }
