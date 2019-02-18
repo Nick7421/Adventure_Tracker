@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
+import DualSportCards from './DualSportCards';
+
+import Grid from '@material-ui/core/Grid';
+import Paper from "@material-ui/core/Paper";
 
 class DualSportAdventure extends Component {
 
@@ -15,7 +19,13 @@ class DualSportAdventure extends Component {
     return (
       <div>
         <h1>Dual-Sport Adventure</h1>
-        {JSON.stringify(this.props.reduxStore.dualSportReducer)}
+        <Paper id="adventure" elevation={3}>
+          <Grid container spacing={32}>
+            {this.props.reduxStore.dualSportReducer.map(dualsport => (
+              <DualSportCards key={dualsport.id} dualsport={dualsport} />
+            ))}
+          </Grid>
+        </Paper>
       </div>
     )
   }

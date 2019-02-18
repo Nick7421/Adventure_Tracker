@@ -22,13 +22,13 @@ const styles = {
     },
   };
 
-  class HikingCards extends Component {
+  class DualSportCards extends Component {
     constructor(props){
         super(props);
     }
 
     detailsPage = () => {
-        console.log(this.props.hike.id);
+        console.log(this.props.dualsport.id);
     }
   render() {
       //This will display a card will all the project info.
@@ -41,21 +41,21 @@ const styles = {
                  component='img'
                  alt='image of project'
                  id='card-media'
-                 image ={this.props.hike.icon_url}
-                 title={this.props.hike.adventure_name}
+                 image ={this.props.dualsport.icon_url}
+                 title={this.props.dualsport.adventure_name}
              />
              <CardContent>
                 <Typography id='project-title' variant="h6">
-                {this.props.hike.adventure_name}
+                {this.props.dualsport.adventure_name}
                 </Typography>
                 <Typography id ='project-descrption' variant ="body1">
-                {this.props.hike.description}
+                {this.props.dualsport.description}
 
                 </Typography>
              </CardContent>
          </CardActionArea> 
          <CardActions>
-                 <Button size="small" color="primary" id='detail-btn' value={this.props.hike.id}
+                 <Button size="small" color="primary" id='detail-btn' value={this.props.dualsport.id}
                  onClick ={this.detailsPage}>
                      Details
                  </Button>
@@ -71,4 +71,4 @@ const mapStoreToProps = reduxStore => ({
     reduxStore
   });
   
-  export default connect(mapStoreToProps)(HikingCards);
+  export default connect(mapStoreToProps)(DualSportCards);
