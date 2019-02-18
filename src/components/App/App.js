@@ -21,6 +21,8 @@ import AdventureForm from '../AdventureForm/AdventureForm';
 import HikingAdventure from '../HikingAdventure/HikingAdventure';
 import DualSportAdventure from '../DualSportAdventure/DualSportAdventure';
 import RoadAdventure from '../RoadAdventure/RoadAdventure';
+import DetailsPage from '../DetailsPage/DetailsPage';
+import PhotographyAdventure from '../PhotographyAdventure/PhotographyAdventure';
 
 
 import './App.css';
@@ -68,6 +70,11 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
+              path="/adventure/:id"
+              component={DetailsPage}
+            />
+            <ProtectedRoute
+              exact
               path="/hiking"
               component={HikingAdventure}
             />
@@ -75,6 +82,11 @@ class App extends Component {
               exact
               path="/dualsport"
               component={DualSportAdventure}
+            />
+            <ProtectedRoute
+              exact
+              path="/photography"
+              component={PhotographyAdventure}
             />
             <ProtectedRoute
               exact

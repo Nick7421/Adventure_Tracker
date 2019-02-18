@@ -7,9 +7,11 @@ const router = express.Router();
  */
 router.get('/:id', (req, res) => {
     if (req.isAuthenticated()) {
+      console.log(req.params);
         // console.log("req.user:", req.user);
+        //SELECT * FROM "user_adventure" WHERE "adventure_id" = 16;
         pool.query(`SELECT * FROM "user_adventure" WHERE "adventure_id" =
-                    ${req.params.id}`)
+                    ${req.params.id};`)
           .then(results => res.send(results.rows))
           .catch(error => {
             console.log("error");
