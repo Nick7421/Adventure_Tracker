@@ -28,6 +28,9 @@ const Nav = (props) => (
           <Link className="nav-link" to="/dualsport">
             Dual Sport
           </Link>
+          <Link className="nav-link" to="/photography">
+            Photography
+          </Link>
           <Link className="nav-link" to="/road">
             Road
           </Link>
