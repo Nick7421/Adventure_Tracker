@@ -23,7 +23,7 @@ class RecentAdventure extends Component {
         <Paper id="adventure" elevation={3}>
           <Grid container spacing={32}>
             {this.props.reduxStore.recentReducer.map(item => (
-              <RecentCards key={item.id} item={item} />
+              <RecentCards key={item.id} item={item} history={this.props.history} />
             ))}
           </Grid>
         </Paper>

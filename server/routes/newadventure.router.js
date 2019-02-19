@@ -14,24 +14,25 @@ router.post("/", (req, res) => {
       try {
         await client.query("BEGIN");
         let queryText =
-          'INSERT INTO "adventure_name"("person_id", "start_date", "end_date", "adventure_name","icon_url") ' +
-          'VALUES ($1, $2, $3, $4, $5) RETURNING "id";';
+          'INSERT INTO "adventure_name"("person_id","advent_type_id", "start_date", "end_date", "adventure_name","icon_url","description) ' +
+          'VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id";';
         let values = [
           user,
+          newAdventure.type,
           newAdventure.startDate,
           newAdventure.endDate,
           newAdventure.name,
-          newAdventure.iconImg
+          newAdventure.iconImg,
+          newAdventure.description
         ];
         let adventureResult = await client.query(queryText, values);
         // id of the newly inserted adventure
         let adventureId = adventureResult.rows[0].id;
         //for loop will loop through the amount positions the user entered
         for (position of newAdventure.positions) {
-          queryText = `INSERT INTO "user_adventure"("advent_type_id","adventure_id", "latitude",
-          "longitude","img_url","video_url")VALUES ($1, $2, $3, $4, $5, $6)`;
+          queryText = `INSERT INTO "user_adventure"("adventure_id", "latitude",
+          "longitude","img_url","video_url")VALUES ($1, $2, $3, $4, $5)`;
           values = [
-            newAdventure.type,
             adventureId,
             position.latitude,
             position.longitude,

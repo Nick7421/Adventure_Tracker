@@ -23,7 +23,7 @@ class RoadAdventure extends Component {
       <Paper id="adventure" elevation={3}>
           <Grid container spacing={32}>
             {this.props.reduxStore.roadReducer.map(road => (
-              <RoadCards key={road.id} road={road} />
+              <RoadCards key={road.id} road={road} history={this.props.history} />
             ))}
           </Grid>
         </Paper>

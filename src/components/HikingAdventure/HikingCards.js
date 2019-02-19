@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router'
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import axios from 'axios';
 
 //Material-UI components used for the Cards
 import Grid from '@material-ui/core/Grid';
@@ -34,10 +35,21 @@ const styles = {
         super(props);
     }
 
+    // getDetails = () => {
+    //     const adventureId = this.props.hike.id;
+    //     axios({
+    //         method:'GET',
+    //         url:`/api/detail/${adventureId}`
+    //     }).then((response)=>{
+    //         console.log(response.data);
+    //     })
+    // }
     detailsPage = () => {
         console.log(this.props.hike.id);
         this.props.history.push(`/adventure/${this.props.hike.id}`);
+        
     }
+
   render() {
       //This will display a card will all the project info.
     return (

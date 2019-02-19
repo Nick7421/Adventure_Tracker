@@ -5,19 +5,20 @@ import GoogleMaps from '../GoogleMaps/GoogleMaps';
 class DetailsPage extends Component {
     constructor(props){
         super(props);
-        this.state= [];
+        this.state = {}
     }
     compnentDidMount(){
         this.getDetails();
     }
 
-    getDetails = () => {
-    const adventureId = this.props.match.params.id;
+    getDetails = (action) => {
+    const Id = action.payload;
     axios({
         method:'GET',
-        url:`/api/detail/${adventureId}`
+        url:`/api/detail/${Id}`
     }).then((response)=>{
-        this.setState(response.data)
+      console.log(response.data);
+        this.setState(response.data);
     })
 
     }
@@ -25,6 +26,7 @@ class DetailsPage extends Component {
     return (
       <div>
       {JSON.stringify(this.props.match.params.id)}
+      {JSON.stringify(this.state)}
         <h1>Details Page</h1>
         
         <GoogleMaps />

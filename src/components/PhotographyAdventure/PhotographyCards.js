@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router'
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
 //Material-UI components used for the Cards
 import Grid from '@material-ui/core/Grid';
