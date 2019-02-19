@@ -3,8 +3,9 @@ const pool = require("../modules/pool");
 const router = express.Router();
 
 router.post("/", (req, res) => {
+  console.log('in post')
   if (req.isAuthenticated()) {
-    console.log(req.body);
+    console.log('req.body',req.body);
     let user = req.user.id;
     let newAdventure = req.body;
     console.log('positions',newAdventure.positions);

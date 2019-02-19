@@ -6,8 +6,8 @@ import axios from 'axios';
 //It will then call SET_RECENT to call a new GET to refresh the recent website.
 function* addNew(action){
     try{
-        const serverResponse = yield axios.post('/api/newadventure');
-        const nextAction ={type:'SET_RECENT', payload:serverResponse.data};
+        const serverResponse = yield axios.post('/api/newadventure',action.payload);
+        const nextAction ={type:'GET_RECENT', payload:serverResponse.data};
         yield put(nextAction);
     }catch(error){
         console.log(error,'in post newAdventure saga');
@@ -18,4 +18,4 @@ function* typeSaga() {
     yield takeLatest('ADD_ADVENTURE', addNew);
   }
   
-  export default addNew;
+  export default typeSaga;

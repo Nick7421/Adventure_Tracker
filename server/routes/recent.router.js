@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
       pool
         .query(`SELECT * FROM "adventure_name"   
                   WHERE ${req.user.id} = "adventure_name"."person_id"
-                  ORDER BY "date_submitted" ASC LIMIT 1;`
+                  ORDER BY "date_submitted" DESC LIMIT 3;`
         )
         .then(results => res.send(results.rows))
         .catch(error => {
