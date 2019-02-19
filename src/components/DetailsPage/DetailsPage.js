@@ -23,7 +23,7 @@ class DetailsPage extends Component {
     }).then((response) => {
       console.log(response.data);
         this.setState({
-          test:response.data,
+          data:response.data,
         })
     })
 
