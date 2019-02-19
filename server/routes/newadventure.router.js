@@ -14,7 +14,7 @@ router.post("/", (req, res) => {
       try {
         await client.query("BEGIN");
         let queryText =
-          'INSERT INTO "adventure_name"("person_id","advent_type_id", "start_date", "end_date", "adventure_name","icon_url","description) ' +
+          'INSERT INTO "adventure_name"("person_id","advent_type_id", "start_date", "end_date", "adventure_name","icon_url","description") ' +
           'VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id";';
         let values = [
           user,
