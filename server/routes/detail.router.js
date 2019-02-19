@@ -31,4 +31,24 @@ router.post('/', (req, res) => {
 
 });
 
+router.delete('/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+  let reqId = req.params.id;
+  console.log('Delete request for id', reqId);
+  let sqlText = 'DELETE FROM "user_adventure" WHERE id=$1;';
+  pool.query(sqlText, [reqId])
+    .then( (result) => {
+      console.log('Item deleted');
+      res.sendStatus(200);
+    })
+    .catch( (error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500); // Good server always responds
+    })
+  } else {
+    //They are not authenticated.
+    res.sendStatus(403);
+}
+})
+
 module.exports = router;
