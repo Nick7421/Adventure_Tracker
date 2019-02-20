@@ -31,8 +31,6 @@ class DetailsPage extends Component {
   render() {
     return (
       <div>
-      {JSON.stringify(this.props.match.params.id)}
-      {JSON.stringify(this.state)}
       
 
         <h1>Details Page</h1>
