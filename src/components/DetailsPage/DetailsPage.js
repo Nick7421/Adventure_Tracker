@@ -36,8 +36,8 @@ class DetailsPage extends Component {
       
 
         <h1>Details Page</h1>
-        
-        <GoogleMaps />
+        <DetailsItem item = {this.state.data} />
+        <GoogleMaps item = {this.state.data}/>
 
 
       </div>
