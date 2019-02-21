@@ -22,6 +22,12 @@ input {
     margin-bottom: 10px;
 }
 
+.info-window {
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+}
+
 .log-in, .log-out, .register {
   background-color: #FB9E24;
   border-radius: 4px;

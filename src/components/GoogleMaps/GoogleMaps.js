@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
  
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-export class MapContainer extends Component {
+export class GoogleMaps extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -16,14 +16,18 @@ export class MapContainer extends Component {
       selectedPlace: {},
     };
   }
-  onMarkerClick = (props, marker, e) =>
+
+  onMarkerClick = (data) => (props, marker, e) => {
+    console.log('imgPath',data.img_url);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
+  }
 
   onMapClicked = (props) => {
+    console.log(props);
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -32,24 +36,49 @@ export class MapContainer extends Component {
     }
   };
   render() {
+    console.log(this.props.item);
+    const style = {
+      width: '960px',
+      height: '300px',
+      'marginLeft': '125px',
+    }
     return (
-      <Map google={this.props.google}
+      <div>
+        {JSON.stringify(this.state.showingInfoWindow)}
+        <Map
+      style = {style} 
+      google={this.props.google}
+      initialCenter={{
+            lat: 37.2690488,
+            lng: -112.9556537
+          }}
           onClick={this.onMapClicked}>
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
-
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}>
-            <div>
-              <h1>Testing Marker</h1>
-            </div>
-        </InfoWindow>
+          {this.props.item.map((data, i) => (
+            <Marker
+              title="Location"
+              id={i}
+              onClick={this.onMarkerClick(data)}
+              position={{lat:Number(data.latitude),lng:Number(data.longitude)}}
+              >
+              
+            </Marker>
+            
+          ))}
+          <InfoWindow
+                visible={this.state.showingInfoWindow}
+                position={this.state.selectedPlace.position}
+                >
+                  <div >
+                    <p>A thing</p>
+                  </div>
+              </InfoWindow>
       </Map>
+      </div>
+      
     );
   }
 }
 
 export default GoogleApiWrapper({
   apiKey: ('AIzaSyAyVH8OEBQ2Y8w7htJHLZUUI0L_x-7HAIw')
-})(MapContainer)
+})(GoogleMaps)

@@ -3,6 +3,7 @@ import axios from 'axios';
 import GoogleMaps from '../GoogleMaps/GoogleMaps';
 import DetailsItem from './DetailsItem';
 
+
 class DetailsPage extends Component {
     constructor(props){
         super(props);
