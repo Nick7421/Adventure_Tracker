@@ -44,10 +44,11 @@ export class GoogleMaps extends Component {
     }
     return (
       <div>
-        {JSON.stringify(this.state.showingInfoWindow)}
+        {/* {JSON.stringify(this.state.showingInfoWindow)} */}
         <Map
       style = {style} 
       google={this.props.google}
+      zoom = { 6 }
       initialCenter={{
             lat: 37.2690488,
             lng: -112.9556537
