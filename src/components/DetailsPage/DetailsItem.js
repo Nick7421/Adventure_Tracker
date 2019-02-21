@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import DeleteOutlined from '@material-ui/icons/DeleteOutlined';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -33,6 +34,10 @@ const styles = theme => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.background.default,
     },
+    icon: {
+      margin: theme.spacing.unit,
+      fontSize: 32,
+    },
   },
 });
 
@@ -44,10 +49,11 @@ function DetailsItem(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Latitude</TableCell>
-            <TableCell >Longitude</TableCell>
-            <TableCell >Image URL</TableCell>
-            <TableCell >Video URL</TableCell>
+            <CustomTableCell>Latitude</CustomTableCell>
+            <CustomTableCell>Longitude</CustomTableCell>
+            <CustomTableCell>Image URL</CustomTableCell>
+            <CustomTableCell>Video URL</CustomTableCell>
+            <CustomTableCell>Delete</CustomTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,8 +63,9 @@ function DetailsItem(props) {
                 {data.latitude}
               </TableCell>
               <TableCell >{data.longitude}</TableCell>
-              <TableCell >{data.imgUrl}</TableCell>
-              <TableCell >{data.videoUrl}</TableCell>
+              <TableCell >{data.img_url}</TableCell>
+              <TableCell >{data.video_url}</TableCell>
+              <TableCell><DeleteOutlined  className={classes.icon} /></TableCell>
             </TableRow>
           ))}
         </TableBody>
