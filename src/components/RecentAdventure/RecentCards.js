@@ -15,13 +15,14 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
     card: {
       maxWidth: 345,
     },
     media: {
-      height: 140,
+      minheight: 140,
     },
   };
 
@@ -29,7 +30,8 @@ const styles = {
     static propTypes = {
       match: PropTypes.object.isRequired,
       location: PropTypes.object.isRequired,
-      history: PropTypes.object.isRequired
+      history: PropTypes.object.isRequired,
+      classes: PropTypes.object.isRequired,
     }
 
     constructor(props){
