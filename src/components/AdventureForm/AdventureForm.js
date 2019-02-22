@@ -35,15 +35,15 @@ const styles = theme => ({
 
 class AdventureForm extends Component {
     state = {
-        name: "Adventure Name",
-        iconImg: "Image URL for icon (optional)",
+        name: "Grand Canyon South Rim",
+        iconImg: "https://images.unsplash.com/photo-1516302350523-4c29d47b89e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
         startDate: "Start Date",
         endDate:"End Date",
-        positions: [{latitude:"",
-                    longitude:"",
-                    imgUrl:"",
-                    videoUrl:""}],
-        description: "Description",
+        positions: [{latitude:"36.0647",
+                    longitude:"-112.12228",
+                    imgUrl:"https://i.imgur.com/9bUJxsA.jpg",
+                    videoUrl:"https://www.youtube.com/watch?v=98csS7FU6bw"}],
+        description: "Grand Canyon Hike",
         type:""
       };
       

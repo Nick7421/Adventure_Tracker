@@ -44,9 +44,9 @@ const styles = {
     return (
        
       <Grid item lg={3}>
-      <Card id ="project-card">
+      <Card className={styles.card}>
          <CardActionArea>
-             <CardMedia 
+             <CardMedia className={styles.media}
                  component='img'
                  alt='image of project'
                  id='card-media'
@@ -78,6 +78,7 @@ const styles = {
 }
 
 const NewDualSportCards = withRouter(DualSportCards);
+
 
 const mapStoreToProps = reduxStore => ({
     reduxStore

@@ -41,8 +41,13 @@ const styles = theme => ({
   },
 });
 
-function DetailsItem(props) {
-  const { classes, item } = props;
+class DetailsItem extends Component {
+  constructor(props){
+      super(props);
+      
+  }
+  render() {
+  const { classes, item } = this.props;
 
   return (
     <Paper className={classes.root}>
@@ -72,6 +77,7 @@ function DetailsItem(props) {
       </Table>
     </Paper>
   );
+          }
 }
 
 DetailsItem.propTypes = {

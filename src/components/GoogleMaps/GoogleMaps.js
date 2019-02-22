@@ -22,7 +22,8 @@ export class GoogleMaps extends Component {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
+      imgPath:data.img_url,
     });
   }
 
@@ -48,7 +49,7 @@ export class GoogleMaps extends Component {
         <Map
       style = {style} 
       google={this.props.google}
-      zoom = { 6 }
+      zoom = { 4 }
       initialCenter={{
             lat: 37.2690488,
             lng: -112.9556537
@@ -70,7 +71,7 @@ export class GoogleMaps extends Component {
                 position={this.state.selectedPlace.position}
                 >
                   <div >
-                    <p>A thing</p>
+                  <img src={this.state.imgPath} alt="image" height="200" width="300"/>
                   </div>
               </InfoWindow>
       </Map>
