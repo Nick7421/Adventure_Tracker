@@ -30,6 +30,12 @@ Once the project is up and running register an account and login. You will then 
 Once you are at the homepage you are now able to add adventures. Just input all the required fields and all your great adventures will be stored. You will now be able to revist locations and see the amazing places you have been. 
 
 
+## Working on the following features
+
+* implementation of the REI API
+* weather api for hiking forecast. 
+
+
 
 
 
