@@ -32,7 +32,7 @@ Once you are at the homepage you are now able to add adventures. Just input all 
 
 ## Working on the following features
 
-* implementation of the REI API
+* implementation of the REI API for searching of hikes in specific areas. 
 * weather api for hiking forecast. 
 
 
