@@ -1,5 +1,5 @@
 # Adventure Tracker
-This application uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`). This app is used to input GPS tracking data to save adventures and display the locations on google maps. 
+This application uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`). This app is used to input GPS tracking data to save adventures and display the locations on google maps. Search through the REI database for hikes near you.
 
 ## Prerequisites
 
